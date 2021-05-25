@@ -276,6 +276,9 @@ const data = {
 | verticalLabelRotation   | number (degree) | Rotation angle of the vertical labels - default 0                                           |
 | showBarTops             | boolean         | Show bar tops                                                                               |
 | showValuesOnTopOfBars   | boolean         | Show value above bars                                                                       |
+| topOfBarsAxisLabel      | string          | Adds a prefix string to the values above the bars                                           |
+| topOfBarsAxisSuffix     | string          | Adds a suffix string to the values above the bars                                           |
+| topOfBarsFormat         | function        | function do format values above the bars                                                    |
 
 ## StackedBar chart
 
@@ -513,9 +516,9 @@ To transpile TypeScript into JavaScript for development purposes, you can use ei
 
 This library is built on top of the following open-source projects:
 
-- react-native-svg (https://github.com/react-native-community/react-native-svg)
-- paths-js (https://github.com/andreaferretti/paths-js)
-- react-native-calendar-heatmap (https://github.com/ayooby/react-native-calendar-heatmap)
+- react-native-svg (<https://github.com/react-native-community/react-native-svg>)
+- paths-js (<https://github.com/andreaferretti/paths-js>)
+- react-native-calendar-heatmap (<https://github.com/ayooby/react-native-calendar-heatmap>)
 
 ## Contribute
 

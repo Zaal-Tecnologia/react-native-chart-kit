@@ -177,19 +177,19 @@ class BarChart extends AbstractChart<BarChartProps, BarChartState> {
     width,
     height,
     paddingTop,
-    paddingRight
+    paddingRight,
+    topOfBarsAxisLabel = "",
+    topOfBarsAxisSuffix = "",
+    topOfBarsFormat = null
   }: Pick<
     Omit<AbstractChartConfig, "data">,
     "width" | "height" | "paddingRight" | "paddingTop"
   > & {
     data: number[];
+    topOfBarsAxisLabel: string;
+    topOfBarsAxisSuffix: string;
+    topOfBarsFormat: (value: number) => void;
   }) => {
-    const {
-      topOfBarsAxisLabel,
-      topOfBarsAxisSuffix,
-      topOfBarsFormat
-    } = this.props;
-
     const baseHeight = this.calcBaseHeight(data, height);
 
     return data.map((x, i) => {
@@ -232,6 +232,9 @@ class BarChart extends AbstractChart<BarChartProps, BarChartState> {
       showBarTops = true,
       withCustomBarColorFromData = false,
       showValuesOnTopOfBars = false,
+      topOfBarsAxisLabel = "",
+      topOfBarsAxisSuffix = "",
+      topOfBarsFormat,
       flatColor = false,
       segments = 4
     } = this.props;
@@ -322,6 +325,9 @@ class BarChart extends AbstractChart<BarChartProps, BarChartState> {
             {showValuesOnTopOfBars &&
               this.renderValuesOnTopOfBars({
                 ...config,
+                topOfBarsAxisLabel,
+                topOfBarsAxisSuffix,
+                topOfBarsFormat,
                 data: data.datasets[0].data,
                 paddingTop: paddingTop as number,
                 paddingRight: paddingRight as number
