@@ -195,6 +195,13 @@ class BarChart extends AbstractChart<BarChartProps, BarChartState> {
     return data.map((x, i) => {
       const barHeight = this.calcHeight(x, data, height);
       const barWidth = 32 * this.getBarPercentage();
+      let text = String(data[i]);
+
+      if (topOfBarsFormat) text = `${topOfBarsFormat(data[i])}`;
+
+      if (topOfBarsAxisLabel !== "") text = `${topOfBarsAxisLabel} ${text}`;
+      if (topOfBarsAxisSuffix !== "") text = `${text} ${topOfBarsAxisSuffix} `;
+
       return (
         <Text
           key={Math.random()}
@@ -208,11 +215,7 @@ class BarChart extends AbstractChart<BarChartProps, BarChartState> {
           fontSize="12"
           textAnchor="middle"
         >
-          {`
-            ${!!topOfBarsAxisLabel && topOfBarsAxisLabel} 
-            ${topOfBarsFormat ? topOfBarsFormat(data[i]) : data[i]} 
-            ${!!topOfBarsAxisSuffix && topOfBarsAxisSuffix}
-            `}
+          {text}
         </Text>
       );
     });
