@@ -85,6 +85,7 @@ class BarChart extends AbstractChart<BarChartProps, BarChartState> {
           x={
             paddingRight +
             (i * (width - paddingRight)) / data.length +
+            24 +
             barWidth / 2
           }
           y={
