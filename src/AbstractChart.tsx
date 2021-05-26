@@ -213,7 +213,7 @@ class AbstractChart<
       }
 
       const basePosition = height * verticalLabelsHeightPercentage;
-      const x = paddingRight - yLabelsOffset + 24;
+      const x = paddingRight - yLabelsOffset;
       const y =
         count === 1 && this.props.fromZero
           ? paddingTop + 4
@@ -282,6 +282,7 @@ class AbstractChart<
       const x =
         (((width - paddingRight) / labels.length) * i +
           paddingRight +
+          24 +
           horizontalOffset) *
         fac;
 
